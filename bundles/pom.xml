@@ -16,8 +16,8 @@
         <module>model</module>
         <module>dao</module>
         <module>dao-impl</module>
-        <module>datasource-selector</module>
         <module>data-initializer</module>
+        <module>derby-datasource</module>
     </modules>
 
 </project>

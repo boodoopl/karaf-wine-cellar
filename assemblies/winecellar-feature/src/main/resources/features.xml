@@ -7,9 +7,13 @@
         <feature>openjpa</feature>
     </feature>
 
+    <feature name="derby-datasource" version="${project.version}">
+        <bundle start-level="78">mvn:org.apache.derby/derby/${derby.version}</bundle>
+        <bundle start-level="79">mvn:org.karaf.winecellar/derby-datasource/${project.version}</bundle>
+    </feature>
+
     <feature name="winecellar" version="${project.version}">
         <bundle start-level="80">mvn:org.karaf.winecellar/dao/${project.version}</bundle>
-        <bundle start-level="80">mvn:org.karaf.winecellar/datasource-selector/${project.version}</bundle>
 
         <bundle start-level="81">mvn:org.karaf.winecellar/model/${project.version}</bundle>
 
@@ -20,6 +24,7 @@
 
     <feature name="winecellar-full" version="${project.version}">
         <feature>winecellar-base</feature>
+        <feature>derby-datasource</feature>
         <feature>winecellar</feature>
     </feature>
 
