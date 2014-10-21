@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint  default-activation="eager"
+            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+            xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.1.0"
+            xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.1.0">
+
+    <bean id="generalDaoService" class="org.karaf.winecellar.dao.impl.GeneralDAOImpl">
+        <jpa:context unitname="winecellar" property="entityManager"/>
+        <tx:transaction method="*" value="Required" />
+    </bean>
+
+    <service ref="generalDaoService" interface="org.karaf.winecellar.dao.GeneralDAO"/>
+
+</blueprint>

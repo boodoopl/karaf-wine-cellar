@@ -3,21 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>winecellar-parent</artifactId>
+        <artifactId>bundles</artifactId>
         <groupId>org.karaf.winecellar</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bundles</artifactId>
+    <artifactId>dao</artifactId>
 
-    <packaging>pom</packaging>
-    <modules>
-        <module>model</module>
-        <module>dao</module>
-        <module>dao-impl</module>
-        <module>datasource-selector</module>
-        <module>data-initializer</module>
-    </modules>
+    <packaging>bundle</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

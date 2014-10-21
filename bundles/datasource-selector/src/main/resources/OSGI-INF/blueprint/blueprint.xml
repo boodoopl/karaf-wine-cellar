@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint  default-activation="eager"
+            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <reference id="jdbcServiceRef" interface="org.apache.karaf.jdbc.JdbcService"/>
+
+    <bean id="datasourceSelector" class="org.karaf.winecellar.datasourceselector.impl.DatasourceSelectorImpl" init-method="init">
+        <property name="jdbcService" ref="jdbcServiceRef"/>
+    </bean>
+
+
+</blueprint>

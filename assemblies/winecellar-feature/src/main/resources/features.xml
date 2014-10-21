@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="winecellar-${project.version}">
+
+    <feature name="winecellar-base" version="${project.version}">
+        <feature>jndi</feature>
+        <feature>jdbc</feature>
+        <feature>openjpa</feature>
+    </feature>
+
+    <feature name="winecellar" version="${project.version}">
+        <bundle start-level="80">mvn:org.karaf.winecellar/dao/${project.version}</bundle>
+        <bundle start-level="80">mvn:org.karaf.winecellar/datasource-selector/${project.version}</bundle>
+
+        <bundle start-level="81">mvn:org.karaf.winecellar/model/${project.version}</bundle>
+
+        <bundle start-level="82">mvn:org.karaf.winecellar/dao-impl/${project.version}</bundle>
+
+        <bundle start-level="83">mvn:org.karaf.winecellar/data-initializer/${project.version}</bundle>
+    </feature>
+
+    <feature name="winecellar-full" version="${project.version}">
+        <feature>winecellar-base</feature>
+        <feature>winecellar</feature>
+    </feature>
+
+</features>
