@@ -18,6 +18,8 @@
         <module>dao-impl</module>
         <module>data-initializer</module>
         <module>derby-datasource</module>
+        <module>data-endpoint</module>
+        <module>data-endpoint-impl</module>
     </modules>
 
 </project>

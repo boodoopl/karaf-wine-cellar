@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint default-activation="eager"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs">
+
+    <reference id="generalDAORef" interface="org.karaf.winecellar.dao.GeneralDAO"/>
+
+    <bean id="WineCRUDEndpoint" class="org.karaf.winecellar.dataendpoint.impl.CRUDEndpointImpl">
+        <argument value="org.karaf.winecellar.model.Wine"/>
+        <property name="generalDAO" ref="generalDAORef"/>
+    </bean>
+
+    <jaxrs:server address="/wines" id="wineService">
+        <jaxrs:serviceBeans>
+            <ref component-id="WineCRUDEndpoint" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+</blueprint>

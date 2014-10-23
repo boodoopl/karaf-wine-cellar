@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="winecellar-${project.version}">
 
+    <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
+
     <feature name="winecellar-base" version="${project.version}">
         <feature>jndi</feature>
         <feature>jdbc</feature>
         <feature>openjpa</feature>
+        <feature>cxf-jaxrs</feature>
+
+        <bundle start-level="70">mvn:com.fasterxml.jackson.core/jackson-core/${fasterxml.version}</bundle>
+        <bundle start-level="70">mvn:com.fasterxml.jackson.core/jackson-annotations/${fasterxml.version}</bundle>
+        <bundle start-level="71">mvn:com.fasterxml.jackson.core/jackson-databind/${fasterxml.version}</bundle>
+        <bundle start-level="72">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${fasterxml.version}</bundle>
+        <bundle start-level="72">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${fasterxml.version}</bundle>
+
     </feature>
 
     <feature name="derby-datasource" version="${project.version}">
@@ -20,6 +30,8 @@
         <bundle start-level="82">mvn:org.karaf.winecellar/dao-impl/${project.version}</bundle>
 
         <bundle start-level="83">mvn:org.karaf.winecellar/data-initializer/${project.version}</bundle>
+        <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint/${project.version}</bundle>
+        <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint-impl/${project.version}</bundle>
     </feature>
 
     <feature name="winecellar-full" version="${project.version}">
