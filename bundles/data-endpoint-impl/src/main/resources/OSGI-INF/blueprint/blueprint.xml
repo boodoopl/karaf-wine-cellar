@@ -5,8 +5,7 @@
 
     <reference id="generalDAORef" interface="org.karaf.winecellar.dao.GeneralDAO"/>
 
-    <bean id="WineCRUDEndpoint" class="org.karaf.winecellar.dataendpoint.impl.CRUDEndpointImpl">
-        <argument value="org.karaf.winecellar.model.Wine"/>
+    <bean id="WineCRUDEndpoint" class="org.karaf.winecellar.dataendpoint.impl.WineEndpointImpl">
         <property name="generalDAO" ref="generalDAORef"/>
     </bean>
 

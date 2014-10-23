@@ -14,10 +14,6 @@ public class CRUDEndpointImpl <E> implements CRUDEndpoint {
         this.clazz = clazz;
     }
 
-    public CRUDEndpointImpl(String className) throws ClassNotFoundException {
-        this((Class<E>) Class.forName(className));
-    }
-
     public void setGeneralDAO(GeneralDAO generalDAO) {
         this.generalDAO = generalDAO;
     }
@@ -25,10 +21,5 @@ public class CRUDEndpointImpl <E> implements CRUDEndpoint {
     @Override
     public List getAll() {
         return generalDAO.getAll(clazz);
-    }
-
-    @Override
-    public String test() {
-        return "Test";
     }
 }

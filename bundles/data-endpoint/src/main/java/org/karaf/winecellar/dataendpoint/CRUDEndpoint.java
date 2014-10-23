@@ -12,9 +12,4 @@ public interface CRUDEndpoint <E> {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public List<E> getAll();
-
-    @GET
-    @Path("/test")
-    @Produces(MediaType.TEXT_PLAIN)
-    String test();
 }
