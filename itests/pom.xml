@@ -65,7 +65,23 @@
             <groupId>org.karaf.winecellar</groupId>
             <artifactId>model</artifactId>
             <version>${project.version}</version>
+            <scope>test</scope>
         </dependency>
+
+        <!--REST client-->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-client</artifactId>
+            <version>3.0.0-milestone1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${fasterxml.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
