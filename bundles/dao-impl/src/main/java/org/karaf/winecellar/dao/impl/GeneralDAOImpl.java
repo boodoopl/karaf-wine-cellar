@@ -29,17 +29,24 @@ public class GeneralDAOImpl implements GeneralDAO {
     }
 
     @Override
+    public <T> void removeById(Class<T> clazz, long id) {
+        DAOCommon.removeById(entityManager, clazz, id);
+    }
+
+    @Override
     public <T> T getById(Class<T> clazz, long id) {
         return entityManager.find(clazz, id);
     }
 
     @Override
-    public void add(Object object) {
+    public Object add(Object object) {
         entityManager.persist(object);
+        return object;
     }
 
     @Override
-    public void update(Object object) {
+    public Object update(Object object) {
         entityManager.merge(object);
+        return object;
     }
 }

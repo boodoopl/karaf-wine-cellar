@@ -10,9 +10,11 @@ public interface GenericDAO<T> {
 
     void removeAll();
 
+    void removeById(long id);
+
     T getById(long id);
 
-    void add(T object);
+    T add(T object);
 
-    void update(T object);
+    T update(T object);
 }

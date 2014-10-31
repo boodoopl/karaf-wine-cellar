@@ -10,9 +10,11 @@ public interface GeneralDAO {
 
     <T> void removeAll(Class<T> clazz);
 
+    <T> void removeById(Class<T> clazz, long id);
+
     <T> T getById(Class<T> clazz, long id);
 
-    <T> void add(T object);
+    <T> T add(T object);
 
-    <T> void update(T object);
+    <T> T update(T object);
 }

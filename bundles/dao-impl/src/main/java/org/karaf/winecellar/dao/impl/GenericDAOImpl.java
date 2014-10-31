@@ -34,18 +34,25 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
     }
 
     @Override
+    public void removeById(long id) {
+        DAOCommon.removeById(entityManager, type, id);
+    }
+
+    @Override
     public T getById(long id) {
         return entityManager.find(type, id);
     }
 
     @Override
-    public void add(T object) {
+    public T add(T object) {
         entityManager.persist(object);
+        return object;
     }
 
     @Override
-    public void update(T object) {
+    public T update(T object) {
         entityManager.merge(object);
+        return object;
     }
 
     protected List<T> getByField(String field, Object value) {

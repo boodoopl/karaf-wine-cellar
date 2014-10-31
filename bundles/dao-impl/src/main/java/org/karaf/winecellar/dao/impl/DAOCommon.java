@@ -37,6 +37,11 @@ public class DAOCommon {
         removeAllQuery.executeUpdate();
     }
 
+    public static void removeById(EntityManager entityManager, Class clazz, long id) {
+        Object object = entityManager.find(clazz, id);
+        entityManager.remove(object);
+    }
+
     public static List getByField(EntityManager entityManager, Class clazz, String fieldName, Object value) {
         Query getByFieldQuery = entityManager.createNamedQuery(getGetByFieldQueryName(clazz, fieldName));
         getByFieldQuery.setParameter(1, value);
