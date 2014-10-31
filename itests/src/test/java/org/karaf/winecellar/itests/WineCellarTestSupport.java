@@ -1,6 +1,7 @@
 package org.karaf.winecellar.itests;
 
 import static org.ops4j.pax.exam.CoreOptions.maven;
+import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.debugConfiguration;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.karafDistributionConfiguration;
 
 import org.ops4j.pax.exam.MavenUtils;
@@ -14,6 +15,8 @@ public class WineCellarTestSupport {
     public Option[] config() {
         return new Option[]{ karafDistributionConfiguration().frameworkUrl(
                 maven().groupId("org.karaf.winecellar").artifactId("winecellar-distribution").type("tar.gz").versionAsInProject())
-                .karafVersion(MavenUtils.getArtifactVersion("org.apache.karaf", "apache-karaf")).name("Winecellar Karaf").unpackDirectory(new File("target/paxexam/")) };
+                .karafVersion(MavenUtils.getArtifactVersion("org.apache.karaf", "apache-karaf")).name("Winecellar Karaf").unpackDirectory(new File("target/paxexam/"))
+        //, debugConfiguration()
+        };
     }
 }
