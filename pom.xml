@@ -54,6 +54,7 @@
 
     <modules>
         <module>bundles</module>
+        <module>angular-frontend</module>
         <module>assemblies</module>
         <module>itests</module>
     </modules>

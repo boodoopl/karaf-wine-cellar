@@ -8,6 +8,7 @@
         <feature>jdbc</feature>
         <feature>openjpa</feature>
         <feature>cxf-jaxrs</feature>
+        <feature>war</feature>
 
         <bundle start-level="70">mvn:com.fasterxml.jackson.core/jackson-core/${fasterxml.version}</bundle>
         <bundle start-level="70">mvn:com.fasterxml.jackson.core/jackson-annotations/${fasterxml.version}</bundle>
@@ -32,6 +33,8 @@
         <bundle start-level="83">mvn:org.karaf.winecellar/data-initializer/${project.version}</bundle>
         <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint/${project.version}</bundle>
         <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint-impl/${project.version}</bundle>
+
+        <bundle start-level="83">webbundle:mvn:org.karaf.winecellar/angular-frontend/${project.version}/war?Web-ContextPath=/angular-frontend</bundle>
     </feature>
 
     <feature name="winecellar-full" version="${project.version}">
