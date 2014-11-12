@@ -3,3 +3,7 @@
 *.iml
 
 target
+/angular-frontend/node_modules
+/angular-frontend/node
+/angular-frontend/src/main/webapp/lib
+/angular-frontend/*.log

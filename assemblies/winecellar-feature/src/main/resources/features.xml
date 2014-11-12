@@ -33,11 +33,13 @@
         <bundle start-level="83">mvn:org.karaf.winecellar/data-initializer/${project.version}</bundle>
         <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint/${project.version}</bundle>
         <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint-impl/${project.version}</bundle>
+    </feature>
 
+    <feature name="winecellar-angular-frontend" version="${project.version}">
         <bundle start-level="83">webbundle:mvn:org.karaf.winecellar/angular-frontend/${project.version}/war$Web-ContextPath=/angular-frontend</bundle>
     </feature>
 
-    <feature name="winecellar-full" version="${project.version}">
+    <feature name="winecellar-backend" version="${project.version}">
         <feature>winecellar-base</feature>
         <feature>derby-datasource</feature>
         <feature>winecellar</feature>

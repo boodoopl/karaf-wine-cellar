@@ -85,7 +85,7 @@
                     <bootFeatures>
                         <feature>standard</feature>
                         <feature>management</feature>
-                        <feature>winecellar-full</feature>
+                        <feature>winecellar-backend</feature>
                     </bootFeatures>
                 </configuration>
             </plugin>
