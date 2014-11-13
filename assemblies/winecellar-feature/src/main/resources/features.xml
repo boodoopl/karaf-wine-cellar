@@ -36,7 +36,7 @@
     </feature>
 
     <feature name="winecellar-angular-frontend" version="${project.version}">
-        <bundle start-level="83">webbundle:mvn:org.karaf.winecellar/angular-frontend/${project.version}/war$Web-ContextPath=/angular-frontend</bundle>
+        <bundle start-level="83">mvn:org.karaf.winecellar/angular-frontend/${project.version}</bundle>
     </feature>
 
     <feature name="winecellar-backend" version="${project.version}">

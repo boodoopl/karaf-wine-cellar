@@ -86,6 +86,7 @@
                         <feature>standard</feature>
                         <feature>management</feature>
                         <feature>winecellar-backend</feature>
+                        <feature>winecellar-angular-frontend</feature>
                     </bootFeatures>
                 </configuration>
             </plugin>
