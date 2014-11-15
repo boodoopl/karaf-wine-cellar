@@ -73,7 +73,14 @@ public class BasicTest extends WineCellarTestSupport {
         prepareWebClientForPath(client, idPath);
         Response response = client.get();
 
-        assertEquals(response.getStatus(), 204);
+        assertEquals(response.getStatus(), Response.Status.NO_CONTENT.getStatusCode());
+    }
+
+    @Test
+    public void checkFrontEnd() {
+        WebClient webClient = WebClient.create("http://localhost:8181");
+        webClient.path("angular-frontend/index.html");
+        assertEquals(webClient.head().getStatus(), Response.Status.OK.getStatusCode());
     }
 
 }
