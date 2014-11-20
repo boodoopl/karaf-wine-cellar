@@ -37,6 +37,10 @@ public class NotificationTest extends WineCellarTestSupport {
         final Wine newWine = new Wine("New wine", "ENG", "", "Some wine");
         final String[] receivedClassName = new String[1];
         final Object[] receivedEntity = new Object[1];
+        final String[] modifiedClassName = new String[1];
+        final Object[] modifiedEntity = new Object[1];
+        final String[] deletedClassName = new String[1];
+        final long[] deletedId = new long[1];
 
         ModelHandler modelHandler = new ModelHandler(bc, new ModelListener() {
             @Override
@@ -49,15 +53,41 @@ public class NotificationTest extends WineCellarTestSupport {
             }
 
             @Override
-            public void entityUpdated(String className, Object entity) {}
+            public void entityUpdated(String className, Object entity) {
+                try {
+                    modifiedClassName[0] = className;
+                    modifiedEntity[0] = entity;
+                    gate.await();
+                } catch (Exception e) {}
+            }
 
             @Override
-            public void entityDeleted(String className, long entityId) {}
+            public void entityDeleted(String className, long entityId) {
+                try {
+                    deletedClassName[0] = className;
+                    deletedId[0] = entityId;
+                    gate.await();
+                } catch (Exception e) {}
+            }
         }, Wine.class.getName());
 
         generalDAO.add(newWine);
         gate.await();
         assertEquals(receivedClassName[0], Wine.class.getName());
         assertEquals(((Wine) receivedEntity[0]).getName(), newWine.getName());
+
+        gate.reset();
+        newWine.setName("New name");
+        generalDAO.update(newWine);
+        gate.await();
+        assertEquals(modifiedClassName[0], Wine.class.getName());
+        assertEquals(((Wine) modifiedEntity[0]).getName(), "New name");
+
+        gate.reset();
+        long wineId = newWine.getId();
+        generalDAO.removeById(Wine.class, wineId);
+        gate.await();
+        assertEquals(deletedClassName[0], Wine.class.getName());
+        assertEquals(deletedId[0], wineId);
     }
 }
