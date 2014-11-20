@@ -9,20 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dao-impl</artifactId>
-
+    <artifactId>event-broker-impl</artifactId>
     <packaging>bundle</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.karaf.winecellar</groupId>
-            <artifactId>dao</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${osgi.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jpa_2.0_spec</artifactId>
-            <version>${jpa.spec.version}</version>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>${osgi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.karaf.winecellar</groupId>
@@ -38,11 +37,10 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Import-Package>
-                            *,
+                        <Export-Package>
                             org.karaf.winecellar.eventbroker.impl.common,
                             org.karaf.winecellar.eventbroker.impl.model
-                        </Import-Package>
+                        </Export-Package>
                     </instructions>
                 </configuration>
             </plugin>

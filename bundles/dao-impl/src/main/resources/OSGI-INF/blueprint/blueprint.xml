@@ -4,9 +4,16 @@
             xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.1.0"
             xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.1.0">
 
+    <reference id="eventAdmin" interface="org.osgi.service.event.EventAdmin"/>
+
+    <bean id="modelPublisherImpl" class="org.karaf.winecellar.eventbroker.impl.model.ModelPublisherImpl">
+        <argument ref="eventAdmin"/>
+    </bean>
+
     <bean id="generalDaoService" class="org.karaf.winecellar.dao.impl.GeneralDAOImpl">
         <jpa:context unitname="winecellar" property="entityManager"/>
         <tx:transaction method="*" value="Required" />
+        <property name="modelPublisher" ref="modelPublisherImpl"/>
     </bean>
 
     <service ref="generalDaoService" interface="org.karaf.winecellar.dao.GeneralDAO"/>

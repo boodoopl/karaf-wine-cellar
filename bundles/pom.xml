@@ -20,6 +20,8 @@
         <module>derby-datasource</module>
         <module>data-endpoint</module>
         <module>data-endpoint-impl</module>
+        <module>event-broker</module>
+        <module>event-broker-impl</module>
     </modules>
 
 </project>

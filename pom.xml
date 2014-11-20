@@ -33,6 +33,7 @@
         <cxf.version>3.0.2</cxf.version>
         <fasterxml.version>2.4.3</fasterxml.version>
         <frontend.plugin.version>0.0.16</frontend.plugin.version>
+        <osgi.version>5.0.0</osgi.version>
     </properties>
 
     <build>

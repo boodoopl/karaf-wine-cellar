@@ -1,6 +1,7 @@
 package org.karaf.winecellar.dao.impl;
 
 import org.karaf.winecellar.dao.GenericDAO;
+import org.karaf.winecellar.eventbroker.impl.model.ModelPublisher;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -9,6 +10,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 
     private EntityManager entityManager;
     private Class<T> type;
+    private ModelPublisher modelPublisher;
 
     public GenericDAOImpl(Class<T> type) {
         this.type = type;
@@ -16,6 +18,10 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    public void setModelPublisher(ModelPublisher modelPublisher) {
+        this.modelPublisher = modelPublisher;
     }
 
     @Override
@@ -36,6 +42,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
     @Override
     public void removeById(long id) {
         DAOCommon.removeById(entityManager, type, id);
+        modelPublisher.entityDeleted(type.getName(), id);
     }
 
     @Override
@@ -46,12 +53,14 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
     @Override
     public T add(T object) {
         entityManager.persist(object);
+        modelPublisher.entityAdded(type.getName(), object);
         return object;
     }
 
     @Override
     public T update(T object) {
         entityManager.merge(object);
+        modelPublisher.entityUpdated(type.getName(), object);
         return object;
     }
 
