@@ -71,6 +71,13 @@
             <groupId>org.karaf.winecellar</groupId>
             <artifactId>event-broker-impl</artifactId>
             <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.karaf.winecellar</groupId>
+            <artifactId>websocket-notifier</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!--REST client-->
@@ -80,11 +87,19 @@
             <version>3.0.0-milestone1</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${fasterxml.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--AHC - Asynchronous HTTP Client -->
+        <dependency>
+            <groupId>com.ning</groupId>
+            <artifactId>async-http-client</artifactId>
+            <version>${ahc.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

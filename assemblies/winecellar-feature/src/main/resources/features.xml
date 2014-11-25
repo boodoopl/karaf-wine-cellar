@@ -2,6 +2,7 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="winecellar-${project.version}">
 
     <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
 
     <feature name="winecellar-base" version="${project.version}">
         <feature>jndi</feature>
@@ -10,6 +11,12 @@
         <feature>cxf-jaxrs</feature>
         <feature>war</feature>
         <feature>eventadmin</feature>
+
+        <!-- Camel -->
+        <feature>camel</feature>
+        <feature>camel-websocket</feature>
+        <feature>camel-blueprint</feature>
+        <feature>camel-eventadmin</feature>
 
         <bundle start-level="70">mvn:com.fasterxml.jackson.core/jackson-core/${fasterxml.version}</bundle>
         <bundle start-level="70">mvn:com.fasterxml.jackson.core/jackson-annotations/${fasterxml.version}</bundle>
@@ -31,8 +38,10 @@
 
         <bundle start-level="82">mvn:org.karaf.winecellar/event-broker/${project.version}</bundle>
         <bundle start-level="82">mvn:org.karaf.winecellar/event-broker-impl/${project.version}</bundle>
+        <bundle start-level="82">mvn:org.karaf.winecellar/websocket-notifier/${project.version}</bundle>
 
         <bundle start-level="82">mvn:org.karaf.winecellar/dao-impl/${project.version}</bundle>
+        <bundle start-level="82">mvn:org.karaf.winecellar/dao-commands/${project.version}</bundle>
 
         <bundle start-level="83">mvn:org.karaf.winecellar/data-initializer/${project.version}</bundle>
         <bundle start-level="83">mvn:org.karaf.winecellar/data-endpoint/${project.version}</bundle>

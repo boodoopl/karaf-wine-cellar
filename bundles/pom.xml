@@ -16,12 +16,14 @@
         <module>model</module>
         <module>dao</module>
         <module>dao-impl</module>
+        <module>dao-commands</module>
         <module>data-initializer</module>
         <module>derby-datasource</module>
         <module>data-endpoint</module>
         <module>data-endpoint-impl</module>
         <module>event-broker</module>
         <module>event-broker-impl</module>
+        <module>websocket-notifier</module>
     </modules>
 
 </project>

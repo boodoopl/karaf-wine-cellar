@@ -12,7 +12,7 @@ public class ModelPublisherImpl extends GenericPublisher implements ModelPublish
     public static final String ENTITY_PROPERTY_NAME = "entity";
     public static final String ENTITY_ID_PROPERTY_NAME = "entityId";
 
-    public static final String MODEL_TOPIC_BASE  = "MODEL/ENTITY";
+    public static final String MODEL_TOPIC_BASE  = "org/karaf/winecellar/Model";
     public static final String MODEL_TOPIC_ENTITY_ADDED = MODEL_TOPIC_BASE + "/ADDED";
     public static final String MODEL_TOPIC_ENTITY_UPDATED = MODEL_TOPIC_BASE + "/UPDATED";
     public static final String MODEL_TOPIC_ENTITY_DELETED = MODEL_TOPIC_BASE + "/DELETED";
@@ -23,7 +23,7 @@ public class ModelPublisherImpl extends GenericPublisher implements ModelPublish
 
     @Override
     public void entityAdded(String className, Object entity) {
-        Map props = new HashMap();
+        Map<String,Object> props = new HashMap<String,Object>();
         props.put(ENTITY_CLASS_PROPERTY_NAME, entity.getClass().getName());
         props.put(ENTITY_PROPERTY_NAME, entity);
         publishMessage(MODEL_TOPIC_ENTITY_ADDED, props);
@@ -31,7 +31,7 @@ public class ModelPublisherImpl extends GenericPublisher implements ModelPublish
 
     @Override
     public void entityUpdated(String className, Object entity) {
-        Map props = new HashMap();
+        Map<String,Object> props = new HashMap<String,Object>();
         props.put(ENTITY_CLASS_PROPERTY_NAME, entity.getClass().getName());
         props.put(ENTITY_PROPERTY_NAME, entity);
         publishMessage(MODEL_TOPIC_ENTITY_UPDATED, props);
@@ -39,7 +39,7 @@ public class ModelPublisherImpl extends GenericPublisher implements ModelPublish
 
     @Override
     public void entityDeleted(String className, long entityId) {
-        Map props = new HashMap();
+        Map<String,Object> props = new HashMap<String,Object>();
         props.put(ENTITY_CLASS_PROPERTY_NAME, className);
         props.put(ENTITY_ID_PROPERTY_NAME, entityId);
         publishMessage(MODEL_TOPIC_ENTITY_DELETED, props);

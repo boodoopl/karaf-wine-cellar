@@ -7,8 +7,6 @@ import org.apache.cxf.jaxrs.client.WebClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.karaf.winecellar.dao.GeneralDAO;
-import org.karaf.winecellar.eventbroker.impl.model.ModelHandler;
-import org.karaf.winecellar.eventbroker.impl.model.ModelListener;
 import org.karaf.winecellar.model.Wine;
 import org.ops4j.pax.exam.junit.ExamReactorStrategy;
 import org.ops4j.pax.exam.junit.PaxExam;
@@ -22,7 +20,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.service.event.EventAdmin;
 
 import java.util.*;
-import java.util.concurrent.CyclicBarrier;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)

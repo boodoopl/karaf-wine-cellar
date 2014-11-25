@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint  default-activation="eager"
+            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <reference id="GeneralDAORef" interface="org.karaf.winecellar.dao.GeneralDAO"/>
+
+    <command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
+        <command>
+            <action class="org.karaf.winecellar.dao.commands.AddWineCommand">
+                <property name="generalDAO" ref="GeneralDAORef"/>
+            </action>
+        </command>
+    </command-bundle>
+
+</blueprint>
