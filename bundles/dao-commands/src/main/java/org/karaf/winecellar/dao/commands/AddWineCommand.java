@@ -1,14 +1,12 @@
 package org.karaf.winecellar.dao.commands;
 
 import org.apache.felix.service.command.CommandSession;
-import org.apache.karaf.shell.commands.Action;
 import org.apache.karaf.shell.commands.Argument;
 import org.apache.karaf.shell.commands.Command;
-import org.karaf.winecellar.dao.GeneralDAO;
 import org.karaf.winecellar.model.Wine;;
 
 @Command(scope = "dao", name = "addWine", description = "Add Wine using DAO")
-public class AddWineCommand implements Action {
+public class AddWineCommand extends DAOCommand {
     @Argument(index=0, name="Wine Name", required=true, description="Wine Name", multiValued=false)
     String wineName;
     @Argument(index=1, name="Wine Country", required=true, description="Wine Country", multiValued=false)
@@ -17,12 +15,6 @@ public class AddWineCommand implements Action {
     String winePicture;
     @Argument(index=3, name="Wine Description", required=true, description="Wine Description", multiValued=false)
     String wineDescription;
-
-    GeneralDAO generalDAO;
-
-    public void setGeneralDAO(GeneralDAO generalDAO) {
-        this.generalDAO = generalDAO;
-    }
 
     @Override
     public Object execute(CommandSession commandSession) throws Exception {

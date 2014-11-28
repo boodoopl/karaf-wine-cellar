@@ -10,6 +10,16 @@
                 <property name="generalDAO" ref="GeneralDAORef"/>
             </action>
         </command>
+        <command>
+            <action class="org.karaf.winecellar.dao.commands.UpdateWineCommand">
+                <property name="generalDAO" ref="GeneralDAORef"/>
+            </action>
+        </command>
+        <command>
+            <action class="org.karaf.winecellar.dao.commands.DeleteWineCommand">
+                <property name="generalDAO" ref="GeneralDAORef"/>
+            </action>
+        </command>
     </command-bundle>
 
 </blueprint>
