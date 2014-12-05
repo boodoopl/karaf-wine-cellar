@@ -21,11 +21,11 @@ public class UpdateWineCommand extends DAOCommand {
     @Override
     public Object execute(CommandSession commandSession) throws Exception {
         Wine existingWine = generalDAO.getById(Wine.class, wineId);
-        existingWine.setName(wineName);
-        existingWine.setCountry(wineCountry);
-        existingWine.setDescription(wineDescription);
-        existingWine.setPicture(winePicture);
-        generalDAO.update(existingWine);
+//        existingWine.setName(wineName);
+//        existingWine.setCountry(wineCountry);
+//        existingWine.setDescription(wineDescription);
+//        existingWine.setPicture(winePicture);
+//        generalDAO.update(existingWine);
         return null;
     }
 }

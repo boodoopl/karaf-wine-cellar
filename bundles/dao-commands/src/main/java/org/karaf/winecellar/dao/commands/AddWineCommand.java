@@ -18,7 +18,7 @@ public class AddWineCommand extends DAOCommand {
 
     @Override
     public Object execute(CommandSession commandSession) throws Exception {
-        generalDAO.add(new Wine(wineName, wineCountry, winePicture, wineDescription));
+        //generalDAO.add(new Wine(wineName, wineCountry, winePicture, wineDescription));
         return null;
     }
 }

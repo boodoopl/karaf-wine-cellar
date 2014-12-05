@@ -3,10 +3,9 @@ package org.karaf.winecellar.dataendpoint.impl;
 import org.karaf.winecellar.dao.GeneralDAO;
 import org.karaf.winecellar.dataendpoint.CRUDEndpoint;
 
-import javax.ws.rs.PathParam;
 import java.util.List;
 
-public class CRUDEndpointImpl <E> implements CRUDEndpoint {
+public abstract class CRUDEndpointImpl <E> implements CRUDEndpoint<E> {
 
     private Class<E> clazz;
     GeneralDAO generalDAO;
@@ -20,22 +19,22 @@ public class CRUDEndpointImpl <E> implements CRUDEndpoint {
     }
 
     @Override
-    public List getAll() {
+    public List<E> getAll() {
         return generalDAO.getAll(clazz);
     }
 
     @Override
-    public Object getById(String id) {
+    public E getById(String id) {
         return generalDAO.getById(clazz, Integer.parseInt(id));
     }
 
     @Override
-    public Object add(Object entity) {
+    public E add(E entity) {
         return generalDAO.add(entity);
     }
 
     @Override
-    public Object update(Object entity) {
+    public E update(E entity) {
         return generalDAO.update(entity);
     }
 

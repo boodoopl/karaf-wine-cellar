@@ -55,7 +55,7 @@ public class BasicTest extends WineCellarTestSupport {
         WebClient client = WebClient.create("http://localhost:8181/cxf", providers);
 
         prepareWebClientForPath(client, "wines");
-        Wine newWine = new Wine("Test Wine", "Country", "IMG", "Description");
+        Wine newWine = new Wine("Test Wine");
         Wine persistedWine = client.post(newWine, Wine.class);
 
         long wineId = persistedWine.getId();

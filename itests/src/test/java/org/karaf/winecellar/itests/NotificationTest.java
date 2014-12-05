@@ -13,13 +13,10 @@ import org.karaf.winecellar.eventbroker.impl.model.ModelListener;
 import org.karaf.winecellar.eventbroker.impl.model.ModelPublisherImpl;
 import org.karaf.winecellar.model.Wine;
 import org.karaf.winecellar.websocketnotifier.SimpleEvent;
-import org.ops4j.pax.exam.ProbeBuilder;
-import org.ops4j.pax.exam.TestProbeBuilder;
 import org.ops4j.pax.exam.junit.ExamReactorStrategy;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.Constants;
 import org.osgi.service.event.EventAdmin;
 
 import javax.inject.Inject;
@@ -55,7 +52,7 @@ public class NotificationTest extends WineCellarTestSupport {
     public void checkModelNotifications() throws Exception {
         final CyclicBarrier gate = new CyclicBarrier(3);
 
-        final Wine newWine = new Wine("New wine", "ENG", "", "Some wine");
+        final Wine newWine = new Wine("New wine");
         final String[] receivedClassName = new String[1];
         final Object[] receivedEntity = new Object[1];
         final String[] modifiedClassName = new String[1];

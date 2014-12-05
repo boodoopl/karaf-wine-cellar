@@ -21,12 +21,12 @@
         </dependency>
         <dependency>
             <groupId>org.karaf.winecellar</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>dao</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.karaf.winecellar</groupId>
-            <artifactId>dao</artifactId>
+            <artifactId>model</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

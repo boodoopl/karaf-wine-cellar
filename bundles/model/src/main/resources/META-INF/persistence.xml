@@ -8,6 +8,7 @@
 
         <class>org.karaf.winecellar.model.EntityWithId</class>
         <class>org.karaf.winecellar.model.Wine</class>
+        <class>org.karaf.winecellar.model.Image</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

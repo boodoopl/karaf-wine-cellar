@@ -9,6 +9,10 @@
         <property name="generalDAO" ref="generalDAORef"/>
     </bean>
 
+    <bean id="ImageEndpoint" class="org.karaf.winecellar.dataendpoint.impl.ImageEndpointImpl">
+        <property name="generalDAO" ref="generalDAORef"/>
+    </bean>
+
     <jaxrs:server address="/wines" id="wineService">
         <jaxrs:serviceBeans>
             <ref component-id="WineCRUDEndpoint" />
@@ -16,6 +20,12 @@
         <jaxrs:providers>
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
+    </jaxrs:server>
+
+    <jaxrs:server address="/images" id="imageService">
+        <jaxrs:serviceBeans>
+            <ref component-id="ImageEndpoint" />
+        </jaxrs:serviceBeans>
     </jaxrs:server>
 
 </blueprint>
