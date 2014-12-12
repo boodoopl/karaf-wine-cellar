@@ -1,5 +1,13 @@
-<ul ng:controller="WineListCtrl">
-    <li ng:repeat="wine in wines">
-        <a href='#/wines/{{ wine.id }}'>{{ wine.name }}</a>
-    </li>
-</ul>
+<div ng:controller="WineListCtrl">
+    <div class="row" ng:repeat="wine in winesMulti">
+        <div class="col-md-4 portfolio-item" ng:repeat="subWine in wine.columns">
+            <a href="#">
+                <img class="img-responsive" ng-src="../cxf/images/{{ subWine.imageId  }}" alt="">
+            </a>
+            <h3>
+                <a href="#">{{ subWine.name }}</a>
+            </h3>
+            <p>{{ subWine.description }}</p>
+        </div>
+    </div>
+</div>
