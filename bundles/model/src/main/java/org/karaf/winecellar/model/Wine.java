@@ -27,7 +27,7 @@ public class Wine extends EntityWithId {
 
     private long imageId;
 
-    public Wine(String name, String grapes, String country, String region, String year, String description, long imageId) {
+    public Wine(String name, String year, String grapes, String country, String region, String description, long imageId) {
         this.name = name;
         this.grapes = grapes;
         this.country = country;
@@ -38,7 +38,7 @@ public class Wine extends EntityWithId {
     }
 
     public Wine(String name) {
-        this(name, "some grapes", "Poland", "Some region", "2014", "Descrption", 0);
+        this(name, "2014", "grapes", "Italy", "region", "Description", 0);
     }
 
     public long getImageId() {

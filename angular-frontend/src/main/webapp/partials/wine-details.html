@@ -1,28 +1,28 @@
-<div>
-    <label>Id:</label>
-    <input name="id" type="text" value="{{ wine.id }}" disabled />
 
-    <label>Name:</label>
-    <input type="text" name="wine.name" value="{{ wine.name }}" required/>
-
-    <label>Grapes:</label>
-    <input type="text" name="wine.grapes" value="{{ wine.grapes }}"/>
-
-    <label>Country:</label>
-    <input type="text" name="wine.country" value="{{ wine.country }}"/>
-
-    <label>Region:</label>
-    <input type="text" name="wine.region" value="{{ wine.region }}"/>
-
-    <label>Year:</label>
-    <input type="text" name="wine.year" value="{{ wine.year }}"/>
-
-    <button class="save" ng:click="saveWine()">Save</button>
-    <button class="delete" ng:click="deleteWine()">Delete</button>
+<!-- Portfolio Item Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{wine.name}}
+            <small>{{wine.country}}</small>
+        </h1>
+    </div>
 </div>
 
-<div>
-    <img width="250" height="300" src="cxf/image/{{ wine.imageId }}" onerror="this.src='pics/generic.jpg'"/>
-    <label>Notes:</label>
-    <textarea name="wine.description">{{ wine.description }}</textarea>
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-responsive" ng-src="../cxf/images/{{ wine.imageId  }}" alt="">
+    </div>
+    <div class="col-md-4">
+        <h3>Description</h3>
+        <p>{{wine.description}}</p>
+        <h3>Details</h3>
+        <ul>
+            <li>Id: {{wine.id}}</li>
+            <li>Name: {{wine.name}}</li>
+            <li>Grapes: {{wine.grapes}}</li>
+            <li>Country: {{wine.country}}</li>
+            <li>Region: {{wine.region}}</li>
+            <li>Year: {{wine.year}}</li>
+        </ul>
+    </div>
 </div>
