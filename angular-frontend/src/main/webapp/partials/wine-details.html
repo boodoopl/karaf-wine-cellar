@@ -9,20 +9,77 @@
 </div>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-4">
+        <ng-switch on="isEditing">
+            <button type="button" class="btn btn-primary"  ng-switch-when="false" ng-click="toggleEdit()">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+            </button>
+            <button type="button" class="btn btn-default"  ng-switch-when="true" ng-click="toggleEdit()">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Cancel
+            </button>
+        </ng-switch>
+        <button type="button" class="btn btn-success" ng-if="isEditing" ng-click="saveWine()">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+        </button>
+        <button type="button" class="btn btn-danger" ng-click="deleteWine()">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
         <img class="img-responsive" ng-src="../cxf/images/{{ wine.imageId  }}" alt="">
     </div>
-    <div class="col-md-4">
-        <h3>Description</h3>
-        <p>{{wine.description}}</p>
-        <h3>Details</h3>
-        <ul>
-            <li>Id: {{wine.id}}</li>
-            <li>Name: {{wine.name}}</li>
-            <li>Grapes: {{wine.grapes}}</li>
-            <li>Country: {{wine.country}}</li>
-            <li>Region: {{wine.region}}</li>
-            <li>Year: {{wine.year}}</li>
-        </ul>
+    <div class="col-md-8">
+        <div class="row">
+            <h3>Description</h3>
+                <ng-switch on="isEditing">
+                    <p ng-switch-when="false">{{wine.description}}</p>
+                    <textarea ng-switch-when="true" type="text" class="form-control" ng-model="wine.description"></textarea>
+                </ng-switch>
+            <h3>Details</h3>
+            <ul>
+                <li>
+                    <label>Id:</label>
+                    <span>{{wine.id}}</span>
+                </li>
+                <li>
+                    <label>Name: </label>
+                    <ng-switch on="isEditing">
+                        <span ng-switch-when="false">{{wine.name}}</span>
+                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.name">
+                    </ng-switch>
+                </li>
+                <li>
+                    <label>Grapes:</label>
+                    <ng-switch on="isEditing">
+                        <span ng-switch-when="false">{{wine.grapes}}</span>
+                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.grapes">
+                    </ng-switch>
+                </li>
+                <li>
+                    <label>Country:</label>
+                    <ng-switch on="isEditing">
+                        <span ng-switch-when="false">{{wine.country}}</span>
+                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.country">
+                    </ng-switch>
+                </li>
+                <li>
+                    <label>Region:</label>
+                    <ng-switch on="isEditing">
+                        <span ng-switch-when="false">{{wine.region}}</span>
+                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.region">
+                    </ng-switch>
+                </li>
+                <li>
+                    <label>Year:</label>
+                    <ng-switch on="isEditing">
+                        <span ng-switch-when="false">{{wine.year}}</span>
+                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.year">
+                    </ng-switch>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

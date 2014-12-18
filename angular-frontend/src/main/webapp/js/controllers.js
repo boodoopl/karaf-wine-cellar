@@ -26,12 +26,26 @@ winecellarControllers.controller('WineListCtrl', ['$scope', 'Wine',
             }
         });
 
-        $scope.orderProp = 'name';
     }]);
 
 winecellarControllers.controller('WineDetailsCtrl', ['$scope', '$routeParams', 'Wine',
     function($scope, $routeParams, Wine) {
-        $scope.wine = Wine.get({id: $routeParams.id}, function(wine) {
-            $scope.mainImageUrl = wine.images[0];
-        });
+        $scope.wine = Wine.get({id: $routeParams.id});
+
+        $scope.isEditing = false;
+
+        $scope.toggleEdit = function() {
+            $scope.isEditing = !$scope.isEditing;
+        };
+
+        $scope.saveWine = function () {
+            if ($scope.wine.id > 0)
+                $scope.wine.$update({id: $routeParams.id});
+            else
+                $scope.wine.$save();
+        };
+
+        $scope.deleteWine = function () {
+            $scope.wine.$delete({id: $routeParams.id});
+        }
     }]);
