@@ -1,15 +1,18 @@
 
-<!-- Portfolio Item Heading -->
+<!-- Wine Heading -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-sm-6">
         <h1 class="page-header">{{wine.name}}
             <small>{{wine.country}}</small>
         </h1>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
+<!-- Wine Edit Bar -->
+<div class="row button-bar">
+    <div class="col-sm-6">
+
+        <!-- Edit/Cancel button -->
         <ng-switch on="isEditing">
             <button type="button" class="btn btn-primary"  ng-switch-when="false" ng-click="toggleEdit()">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
@@ -18,68 +21,59 @@
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Cancel
             </button>
         </ng-switch>
+
+        <!-- Save button -->
         <button type="button" class="btn btn-success" ng-if="isEditing" ng-click="saveWine()">
             <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
         </button>
+
+        <!-- Delete button -->
         <button type="button" class="btn btn-danger" ng-click="deleteWine()">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
         </button>
     </div>
 </div>
 
+<!-- Wine Pane -->
 <div class="row">
-    <div class="col-md-4">
+
+    <!-- Wine Image -->
+    <div class="col-sm-3">
         <img class="img-responsive" ng-src="../cxf/images/{{ wine.imageId  }}" alt="">
     </div>
-    <div class="col-md-8">
+
+    <!-- Wine Details -->
+    <div class="col-sm-3">
         <div class="row">
+
+            <!-- Wine Description Text/TextEdit -->
             <h3>Description</h3>
                 <ng-switch on="isEditing">
                     <p ng-switch-when="false">{{wine.description}}</p>
-                    <textarea ng-switch-when="true" type="text" class="form-control" ng-model="wine.description"></textarea>
+                    <textarea ng-switch-when="true" type="text" class="form-control"
+                              ng-model="wine.description" rows="4"></textarea>
                 </ng-switch>
+
+            <!-- Wine Properties List/Text Inputs -->
             <h3>Details</h3>
-            <ul>
-                <li>
-                    <label>Id:</label>
-                    <span>{{wine.id}}</span>
-                </li>
-                <li>
-                    <label>Name: </label>
-                    <ng-switch on="isEditing">
-                        <span ng-switch-when="false">{{wine.name}}</span>
-                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.name">
-                    </ng-switch>
-                </li>
-                <li>
-                    <label>Grapes:</label>
-                    <ng-switch on="isEditing">
-                        <span ng-switch-when="false">{{wine.grapes}}</span>
-                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.grapes">
-                    </ng-switch>
-                </li>
-                <li>
-                    <label>Country:</label>
-                    <ng-switch on="isEditing">
-                        <span ng-switch-when="false">{{wine.country}}</span>
-                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.country">
-                    </ng-switch>
-                </li>
-                <li>
-                    <label>Region:</label>
-                    <ng-switch on="isEditing">
-                        <span ng-switch-when="false">{{wine.region}}</span>
-                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.region">
-                    </ng-switch>
-                </li>
-                <li>
-                    <label>Year:</label>
-                    <ng-switch on="isEditing">
-                        <span ng-switch-when="false">{{wine.year}}</span>
-                        <input ng-switch-when="true" type="text" class="form-control" ng-model="wine.year">
-                    </ng-switch>
-                </li>
-            </ul>
+            <form class="form-horizontal" role="form">
+                <!-- Wine Id is just a text -->
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Id</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{wine.id}}</p>
+                    </div>
+                </div>
+
+                <!-- The other Wine properties are text or Text Inputs -->
+                <div class="form-group" ng-repeat="(key, value) in wine"  ng-if="key!='id' && key!='description'">
+                    <label class="col-sm-4 control-label">{{key}}</label>
+                    <div class="col-sm-8" ng-switch on="isEditing">
+                        <p class="form-control-static" ng-switch-when="false">{{value}}</p>
+                        <input ng-switch-when="true" type="text" class="form-control" ng-model="editedWine[key]">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

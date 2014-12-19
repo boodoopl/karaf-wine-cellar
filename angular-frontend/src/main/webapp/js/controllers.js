@@ -36,11 +36,15 @@ winecellarControllers.controller('WineDetailsCtrl', ['$scope', '$routeParams', '
 
         $scope.toggleEdit = function() {
             $scope.isEditing = !$scope.isEditing;
+
+            if ($scope.isEditing) {
+                $scope.editedWine = angular.copy($scope.wine);
+            }
         };
 
         $scope.saveWine = function () {
             if ($scope.wine.id > 0)
-                $scope.wine.$update({id: $routeParams.id});
+                $scope.editedWine.$update({id: $routeParams.id});
             else
                 $scope.wine.$save();
         };
