@@ -30,9 +30,27 @@ winecellarControllers.controller('WineListCtrl', ['$scope', 'Wine',
 
 winecellarControllers.controller('WineDetailsCtrl', ['$scope', '$routeParams', 'Wine',
     function($scope, $routeParams, Wine) {
-        $scope.wine = Wine.get({id: $routeParams.id});
 
-        $scope.isEditing = false;
+        if($routeParams.id == "new" || $routeParams.id == "" || $routeParams.id == 0) {
+            $scope.editedWine = new Wine();
+
+            $scope.editedWine.id = 0;
+            $scope.editedWine.name = '';
+            $scope.editedWine.grapes = '';
+            $scope.editedWine.country = '';
+            $scope.editedWine.region = '';
+            $scope.editedWine.year = '';
+            $scope.editedWine.description = '';
+            $scope.editedWine.imageId = 0;
+
+            $scope.isEditing = true;
+            $scope.wine = angular.copy($scope.editedWine);
+            $scope.isNew = true;
+        }
+        else {
+            $scope.wine = Wine.get({id: $routeParams.id});
+            $scope.isEditing = false;
+        }
 
         $scope.toggleEdit = function() {
             $scope.isEditing = !$scope.isEditing;
@@ -43,10 +61,10 @@ winecellarControllers.controller('WineDetailsCtrl', ['$scope', '$routeParams', '
         };
 
         $scope.saveWine = function () {
-            if ($scope.wine.id > 0)
+            if ($scope.editedWine.id > 0)
                 $scope.editedWine.$update({id: $routeParams.id});
             else
-                $scope.wine.$save();
+                $scope.editedWine.$save();
         };
 
         $scope.deleteWine = function () {
