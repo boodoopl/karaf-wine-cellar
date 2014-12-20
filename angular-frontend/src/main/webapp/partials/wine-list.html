@@ -1,8 +1,9 @@
 <div ng:controller="WineListCtrl">
     <div class="row" ng:repeat="wine in winesMulti">
         <div class="col-md-4 portfolio-item" ng:repeat="subWine in wine.columns">
-            <a href="#">
-                <img class="img-responsive" ng-src="../cxf/images/{{ subWine.imageId  }}" alt="">
+            <a href="#/wines/{{subWine.id}}" ng-switch="subWine.imageId">
+                <img ng-switch-default class="img-responsive" ng-src="../cxf/images/{{ subWine.imageId  }}">
+                <img ng-switch-when="0" class="img-responsive" ng-src="pics/generic.jpg">
             </a>
             <h3>
                 <a href="#/wines/{{subWine.id}}">{{ subWine.name }}</a>

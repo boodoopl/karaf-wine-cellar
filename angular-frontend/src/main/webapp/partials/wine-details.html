@@ -38,8 +38,9 @@
 <div class="row">
 
     <!-- Wine Image -->
-    <div class="col-sm-3">
-        <img class="img-responsive" ng-src="../cxf/images/{{ wine.imageId  }}" alt="">
+    <div class="col-sm-3" ng-switch="wine.imageId">
+        <img class="img-responsive" ng-src="../cxf/images/{{ wine.imageId  }}" ng-switch-default>
+        <img class="img-responsive" ng-src="pics/generic.jpg" ng-switch-when="0">
     </div>
 
     <!-- Wine Details -->
