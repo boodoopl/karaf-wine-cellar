@@ -28,7 +28,7 @@
         </button>
 
         <!-- Delete button -->
-        <button type="button" class="btn btn-danger" ng-click="deleteWine()">
+        <button type="button" class="btn btn-danger" ng-click="deleteWine()" ng-hide="isNew">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
         </button>
     </div>
@@ -51,7 +51,7 @@
                 <ng-switch on="isEditing">
                     <p ng-switch-when="false">{{wine.description}}</p>
                     <textarea ng-switch-when="true" type="text" class="form-control"
-                              ng-model="wine.description" rows="4"></textarea>
+                              ng-model="editedWine.description" rows="4"></textarea>
                 </ng-switch>
 
             <!-- Wine Properties List/Text Inputs -->
@@ -66,7 +66,7 @@
                 </div>
 
                 <!-- The other Wine properties are text or Text Inputs -->
-                <div class="form-group" ng-repeat="(key, value) in wine"  ng-if="key!='id' && key!='description'">
+                <div class="form-group" ng-repeat="(key, value) in wine"  ng-if="key!='id' && key!='description' && key!='imageId'">
                     <label class="col-sm-4 control-label">{{key}}</label>
                     <div class="col-sm-8" ng-switch on="isEditing">
                         <p class="form-control-static" ng-switch-when="false">{{value}}</p>
