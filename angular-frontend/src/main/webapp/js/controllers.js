@@ -67,13 +67,18 @@ winecellarControllers.controller('WineDetailsCtrl', ['$scope', '$routeParams', '
         };
 
         $scope.saveWine = function () {
-            if ($scope.editedWine.id > 0)
+            if ($scope.editedWine.id > 0) {
                 $scope.editedWine.$update({id: $routeParams.id});
-            else
+                window.location.reload();
+            }
+            else {
                 $scope.editedWine.$save();
+                window.location = "#/wines";
+            }
         };
 
         $scope.deleteWine = function () {
             $scope.wine.$delete({id: $routeParams.id});
+            window.location = "#/wines";
         }
     }]);
