@@ -10,6 +10,6 @@ public interface ImageEndpoint {
 
     @GET
     @Path("{id}")
-    @Produces({"image/png"})
+    @Produces({"image/jpg"})
     public Response getById(@PathParam("id") String id);
 }

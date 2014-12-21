@@ -36,6 +36,7 @@
         <osgi.version>5.0.0</osgi.version>
         <camel.version>2.14.0</camel.version>
         <ahc.version>1.8.14</ahc.version>
+        <apache.commons.version>2.4</apache.commons.version>
     </properties>
 
     <build>

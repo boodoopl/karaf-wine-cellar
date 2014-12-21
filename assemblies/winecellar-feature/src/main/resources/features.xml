@@ -24,6 +24,8 @@
         <bundle start-level="72">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${fasterxml.version}</bundle>
         <bundle start-level="72">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${fasterxml.version}</bundle>
 
+        <bundle start-level="72">mvn:commons-io/commons-io/${apache.commons.version}</bundle>
+
     </feature>
 
     <feature name="derby-datasource" version="${project.version}">

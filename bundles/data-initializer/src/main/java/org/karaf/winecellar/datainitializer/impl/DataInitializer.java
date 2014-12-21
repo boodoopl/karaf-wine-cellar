@@ -1,5 +1,6 @@
 package org.karaf.winecellar.datainitializer.impl;
 
+import org.apache.commons.io.IOUtils;
 import org.karaf.winecellar.dao.GeneralDAO;
 import org.karaf.winecellar.model.Image;
 import org.karaf.winecellar.model.Wine;
@@ -140,14 +141,9 @@ public class DataInitializer {
 		InputStream inputStream = getClass().getResourceAsStream("/images/" + fileName);
 		byte[] data = new byte[0];
 		try {
-			data = new byte[inputStream.available()];
+			data = IOUtils.toByteArray(inputStream);
 		} catch (IOException e) {
-			throw new RuntimeException("File read error", e);
-		}
-		try {
-			inputStream.read(data);
-		} catch (IOException e) {
-			throw new RuntimeException("File read error", e);
+			throw new RuntimeException("Unable do read Wine image", e);
 		}
 		Image image = new Image(data);
         generalDAO.add(image);
