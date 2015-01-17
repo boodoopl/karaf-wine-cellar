@@ -4,6 +4,11 @@
 
 var winecellarControllers = angular.module('winecellarControllers', []);
 
+winecellarControllers.controller('EventsCtrl', ['$scope', 'WineNotification',
+    function($scope, WineNotification) {
+        $scope.WineNotification = WineNotification;
+    }]);
+
 winecellarControllers.controller('WineListCtrl', ['$scope', 'Wine',
     function($scope, Wine) {
 
