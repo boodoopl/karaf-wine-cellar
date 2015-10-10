@@ -29,10 +29,14 @@ Inspiration: [Sample Application with Angular.js](http://coenraets.org/blog/2012
 - Wait a little bit
 - Type *list* in Karaf console - if all bundles are in Active state it means the system is ready
 
+![Karaf](/screens/karaf.png?raw=true "Karaf screenshot")
+
 ## Playing with wines
 
 - Open [http://localhost:8181/angular-frontend/index.html](http://localhost:8181/angular-frontend/index.html) in your favorite browser
 - Play with wines
+
+![Karaf](/screens/UI.png?raw=true "Karaf screenshot")
 
 ## Watching more
 
