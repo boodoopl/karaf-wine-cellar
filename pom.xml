@@ -27,7 +27,7 @@
         <jpa.version>2.3.0</jpa.version>
         <derby.version>10.8.2.2</derby.version>
         <slf4j.version>1.6.1</slf4j.version>
-        <karaf.version>3.0.3-SNAPSHOT</karaf.version>
+        <karaf.version>3.0.3</karaf.version>
         <pax.exam.version>3.4.0</pax.exam.version>
         <rs.api.version>2.0.1</rs.api.version>
         <cxf.version>3.0.2</cxf.version>
